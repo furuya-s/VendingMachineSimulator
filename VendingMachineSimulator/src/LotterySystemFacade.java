@@ -2,11 +2,15 @@
 public class LotterySystemFacade extends Facade {
 	private Lottery lottery;
 	
+	public LotterySystemFacade() {
+		lottery = new Lottery();
+	}
+	
 	/*
 	 * ’Š‘I‚·‚é
 	 */
-	public void drawlot() {
+	public boolean drawlot() {
 		int num = lottery.getRandomNumber();
-		boolean result = lottery.judgment(num);
+		return lottery.judgment(num);
 	}
 }
