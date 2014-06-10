@@ -5,10 +5,9 @@ public class Client {
 	
 	public Client() {
 		vendingMachineFacade = new VendingMachineFacade();
-		test();
 	}
 	
 	public void test() {
-		vendingMachineFacade.insertMoney(100);
+		
 	}
 }
