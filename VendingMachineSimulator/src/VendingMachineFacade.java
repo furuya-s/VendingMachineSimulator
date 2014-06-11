@@ -7,19 +7,27 @@ public class VendingMachineFacade extends Facade {
 		mediator = new ConcreteMediator();
 	}
 	
-	public void insertMoney(int money) {
-		mediator.insertMoney(money);
+	public boolean insertMoney(int money) {
+		return mediator.insertMoney(money);
 	}
 	
 	public boolean pushButton(int button) {
 		return mediator.pushButton(button);
 	}
 	
-	public String showCanBuy() {
-		return mediator.showCanBuy();
+	public String getCanBuy() {
+		return mediator.getCanBuy();
+	}
+	
+	public int getAmount() {
+		return mediator.getAmount();
 	}
 	
 	public int getChange() {
 		return mediator.getChange();
+	}
+	
+	public boolean touchIC() {
+		return mediator.touchIC();
 	}
 }

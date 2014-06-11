@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 
 public class AccountSystemFacade extends Facade {
@@ -8,14 +7,13 @@ public class AccountSystemFacade extends Facade {
 		account = new Account();
 	}
 	
-	public int insertMoney(int money) {
-		account.insertMoney(money);
-		return account.getMoney();
+	public boolean insertMoney(int money) {
+		return account.insertMoney(money);
 	}
 	
 	public void minusAmount(int money) {
 		account.minusAmount(money);
-	}
+	}  
 	
 	public int getChange() {
 		return account.getChange();
@@ -23,5 +21,9 @@ public class AccountSystemFacade extends Facade {
 	
 	public int getAmount() {
 		return account.getAmount();
+	}
+	
+	public boolean payByIC() {
+		return account.payByIC();
 	}
 }

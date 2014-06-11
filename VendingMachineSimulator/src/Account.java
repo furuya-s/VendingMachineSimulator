@@ -10,12 +10,13 @@ public class Account {
 		amount = 0;
 	}
 	
-	public void insertMoney(int money) {
-		amount += money;
-	}
-	
-	public int getMoney() {
-		return amount;
+	public boolean insertMoney(int money) {
+		if (money == 1000 || money == 500 || money == 100 || money == 50 || money == 10) {
+			amount += money;
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public void minusAmount(int money) {
@@ -30,5 +31,10 @@ public class Account {
 	
 	public int getAmount() {
 		return amount;
+	}
+	
+	public boolean payByIC() {
+		// É_É~Å[
+		return true;
 	}
 }
