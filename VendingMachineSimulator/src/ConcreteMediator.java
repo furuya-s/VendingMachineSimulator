@@ -7,6 +7,7 @@ public class ConcreteMediator implements Mediator {
 	private SaleSystemFacade saleSystemFacade;
 	private LotterySystemFacade lotterySystemFacade;
 	private AccountSystemFacade accountSystemFacade;
+	private AdminSystemFacade adminSystemFacade;
 	
 	private ArrayList<Integer> canBuy;
 	
@@ -18,6 +19,7 @@ public class ConcreteMediator implements Mediator {
 		saleSystemFacade = new SaleSystemFacade();
 		lotterySystemFacade = new LotterySystemFacade();
 		accountSystemFacade = new AccountSystemFacade();
+		adminSystemFacade = new AdminSystemFacade();
 	
 		canBuy = new ArrayList<Integer>();
 		
@@ -29,6 +31,17 @@ public class ConcreteMediator implements Mediator {
 		canBuy = saleSystemFacade.getCanBuy(accountSystemFacade.getAmount());
 		
 		return result;
+	}
+	
+	public String getSoldOut() {
+		ArrayList<Integer> soldOut = new ArrayList<Integer>();
+		for (int i = 0; i < 30; i++) {
+			if (saleSystemFacade.isEmpty(i)) {
+				soldOut.add(i);
+			}
+		}
+		
+		return soldOut.toString();
 	}
 	
 	public boolean pushButton(int button) {
@@ -90,5 +103,25 @@ public class ConcreteMediator implements Mediator {
 			ICmode = false;
 			return true;
 		}
+	}
+	
+	public void setPrice(int juice, int money) {
+		adminSystemFacade.setPrice(juice, money);
+	}
+	
+	public void setMaxAmount(int max) {
+		adminSystemFacade.setMaxAmount(max);
+	}
+	
+	public void setAvailableTime(int time) {
+		adminSystemFacade.setAvailableTime(time);
+	}
+	
+	public String getSaleInfo() {
+		return adminSystemFacade.getSaleInfo();
+	}
+	
+	public void sendDatabase() {
+		adminSystemFacade.sendDatabase();
 	}
 }

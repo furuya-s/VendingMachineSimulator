@@ -1,4 +1,5 @@
 
+
 public class VendingMachineFacade extends Facade {
 	
 	private ConcreteMediator mediator;
@@ -29,5 +30,29 @@ public class VendingMachineFacade extends Facade {
 	
 	public boolean touchIC() {
 		return mediator.touchIC();
+	}
+	
+	public void setPrice(int juice, int money) {
+		mediator.setPrice(juice, money);
+	}
+	
+	public void setMaxAmount(int max) {
+		mediator.setMaxAmount(max);
+	}
+	
+	public void setAvailableTime(int time) {
+		mediator.setAvailableTime(time);
+	}
+	
+	public String getSaleInfo() {
+		return mediator.getSaleInfo();
+	}
+	
+	public void sendDatabase() {
+		mediator.sendDatabase();
+	}
+	
+	public String getSoldOut() {
+		return mediator.getSoldOut();
 	}
 }
